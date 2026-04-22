@@ -62,6 +62,8 @@ class HexTranslator                             // Translator class for both Hex
 
 int main()
 {   
+    system("clear");
+
     bool loop=true;
     ////////////////////////////////
     // Basic Project Presentation //
@@ -86,16 +88,16 @@ int main()
         std::cout<<"What would you like to do?\n";
         std::cout<<"1) Encrypt a message\n";
         std::cout<<"2) Decrypt a message\n";
-        std::cout<<"q/Q) Quit the program\n";
+        std::cout<<"q/Q) Quit the program\n\n";
         std::getline(std::cin, answer);
 
         if(answer=="1")                             // Encrypting message
         {
             std::string originalText;               // User input string (supposed to contain human-readable text)
-            std::cout<<"Enter the message you wish to encrypt\n\n";
+            std::cout<<"\nEnter the message you wish to encrypt\n\n";
             std::getline(std::cin, originalText);
 
-            std::cout<<"Encrypting message...\n\n";
+            std::cout<<"\nEncrypting message...\n\n";
             std::this_thread::sleep_for(std::chrono::seconds(1));
 
             std::string encodedHex=HexTranslator::TextToHex(originalText);
@@ -103,11 +105,11 @@ int main()
         }
         else if(answer=="2")                        // Decrypting message
         {
-            std::string originalHex;                // User input string (supposed to contain hexadecimal text)
-            std::cout<<"Enter the message you wish to decrypt\n\n";
+            std::string originalHex;  // User input string (supposed to contain hexadecimal text)
+            std::cout<<"\nEnter the message you wish to decrypt\n\n";
             std::getline(std::cin, originalHex); 
-
-            std::cout<<"Revealing message...\n\n";
+          
+            std::cout<<"\nRevealing message...\n\n";
             std::this_thread::sleep_for(std::chrono::seconds(1));
 
             try                                     // Error handling in case the translator goes wrong (WHICH IS IMPOSSIBLE)
@@ -122,13 +124,13 @@ int main()
         }
         else if(answer=="q"||answer=="Q")           // Option for quitting the program (It is a console-based program so you might as well just use Ctrl+C)
         {
-            std::cout<<"Quitting the program now...\n\n";
+            std::cout<<"\nQuitting the program now...\n\n";
             std::this_thread::sleep_for(std::chrono::seconds(1));
             loop=false;
         }
         else                                        // Error Handler in case some smart guy tries to see what happens if he types something else
         {
-            std::cout<<"Invalid Answer, Please try again\n\n";
+            std::cout<<"\nInvalid Answer, Please try again\n\n";
         }
     }
     return 0;
